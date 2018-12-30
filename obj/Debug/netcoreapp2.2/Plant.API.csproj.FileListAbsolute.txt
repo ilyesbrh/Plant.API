@@ -1,0 +1,14 @@
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\bin\Debug\netcoreapp2.2\Plant.API.deps.json
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\bin\Debug\netcoreapp2.2\Plant.API.runtimeconfig.json
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\bin\Debug\netcoreapp2.2\Plant.API.runtimeconfig.dev.json
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\bin\Debug\netcoreapp2.2\Plant.API.dll
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\bin\Debug\netcoreapp2.2\Plant.API.pdb
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.csprojAssemblyReference.cache
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.csproj.CoreCompileInputs.cache
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.RazorAssemblyInfo.cache
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.RazorAssemblyInfo.cs
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.AssemblyInfoInputs.cache
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.AssemblyInfo.cs
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.RazorTargetAssemblyInfo.cache
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.dll
+C:\Users\ilies\Documents\GitHub\Angular\Angular-DotNet\Plant.API\obj\Debug\netcoreapp2.2\Plant.API.pdb
