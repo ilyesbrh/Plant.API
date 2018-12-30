@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Plant.API.data;
 
 namespace Plant.API.Controllers {
@@ -16,8 +17,9 @@ namespace Plant.API.Controllers {
         }
         // GET api/values
         [HttpGet]
-        public IActionResult GetValues () {
-            var values = context.Values.ToList ();
+        public async Task<IActionResult> GetValues () {
+
+            var values = await context.Values.ToListAsync();
 
             return Ok (values);
         }
