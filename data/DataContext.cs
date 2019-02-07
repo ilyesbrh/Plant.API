@@ -10,5 +10,6 @@ namespace Plant.API.data
         {
         }
         public DbSet<Value> Values { get; set; }
+        public DbSet<user> Users { get; set; }
     }
 }
