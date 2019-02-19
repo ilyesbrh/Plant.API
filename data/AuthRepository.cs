@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Plant.API.models;
 
 namespace Plant.API.data {
@@ -9,20 +12,50 @@ namespace Plant.API.data {
         public AuthRepository (DataContext context) {
             this.context = context;
         }
-        public Task<user> Login (string userName, string password) {
+        public async Task<user> Login (string userName, string password) {
             
-            var user = this.context.Users.FirstOrDefault(x => x.userName == userName);
+            var User = await this.context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
+            if (!verifyPassword(User,password))
+            {
+                return null;
+            }else
+            {
+                return User;
+            } 
         }
-        public async Task<user> Register (user user, string password) {
+
+        private bool verifyPassword(user user,string password)
+        {
+            if(user==null) return false;
+
+            using (HMACSHA512 Hmac = new HMACSHA512 (user.Salt))
+            {
+                var hash = Hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+                for (int i = 0; i < user.Hash.Length; i++)
+                {
+                    if(hash[i]!=user.Hash[i])return false;
+                }
+
+                return true;
+            }
+
+        }
+
+        public async Task<user> Register (string username, string password) {
             
             byte[] hash, salt;
             CreatePasswordHash (password, out hash, out salt);
-            user.Salt=salt;
-            user.Hash=hash;
-
-            await this.context.Users.AddAsync(user);
+            
+            user User= new user
+            {
+                UserName = username,
+                Salt=salt,
+                Hash=hash
+            };
+            await this.context.Users.AddAsync(User);
             await this.context.SaveChangesAsync();
-            return user;
+            return User;
         }
 
         private void CreatePasswordHash (string password, out byte[] hash, out byte[] salt) {
@@ -33,9 +66,9 @@ namespace Plant.API.data {
             }
 
         }
+        public async Task<bool> UserExists (string userName) {
 
-        public Task<user> UserExists (string userName) {
-            throw new System.NotImplementedException ();
+            return await context.Users.AnyAsync(x => x.UserName == userName);
         }
     }
 }
