@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Plant.API.data;
 
 namespace Plant.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190219150832_LastUpdate_Type_Changed")]
+    partial class LastUpdate_Type_Changed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,11 +25,11 @@ namespace Plant.API.Migrations
 
                     b.Property<int>("AdminsNumber");
 
-                    b.Property<double>("HowMuchDone");
+                    b.Property<int>("HowMuchDone");
 
-                    b.Property<DateTime>("LastUpdate");
+                    b.Property<string>("LastUpdate");
 
-                    b.Property<bool>("ReadyToUse");
+                    b.Property<string>("ReadyToUse");
 
                     b.Property<int>("UsersNumber");
 

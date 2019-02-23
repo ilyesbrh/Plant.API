@@ -1,6 +1,6 @@
 namespace Plant.API.models
 {
-    public class user
+    public class User
     {
         public int Id { get; set; } 
         public string UserName { get; set; }

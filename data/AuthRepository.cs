@@ -12,7 +12,7 @@ namespace Plant.API.data {
         public AuthRepository (DataContext context) {
             this.context = context;
         }
-        public async Task<user> Login (string userName, string password) {
+        public async Task<User> Login (string userName, string password) {
             
             var User = await this.context.Users.FirstOrDefaultAsync(x => x.UserName == userName);
             if (!verifyPassword(User,password))
@@ -24,7 +24,7 @@ namespace Plant.API.data {
             } 
         }
 
-        private bool verifyPassword(user user,string password)
+        private bool verifyPassword(User user,string password)
         {
             if(user==null) return false;
 
@@ -42,12 +42,12 @@ namespace Plant.API.data {
 
         }
 
-        public async Task<user> Register (string username, string password) {
+        public async Task<User> Register (string username, string password) {
             
             byte[] hash, salt;
             CreatePasswordHash (password, out hash, out salt);
             
-            user User= new user
+            User User= new User
             {
                 UserName = username,
                 Salt=salt,

@@ -46,7 +46,8 @@ namespace Plant.API.Controllers {
 
         [HttpPost ("Login")]
         public async Task<IActionResult> Login ([FromBody] LoginDTO user) {
-            
+
+
             // retrieve user from DB
             var userData = await repo.Login (user.Username.ToLower(), user.Password);
             // see if user exists

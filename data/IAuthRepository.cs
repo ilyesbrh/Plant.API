@@ -5,8 +5,8 @@ namespace Plant.API.data
 {
     public interface IAuthRepository
     {
-         Task<user> Register(string user ,string password);
-         Task<user> Login(string userName ,string password);
+         Task<User> Register(string user ,string password);
+         Task<User> Login(string userName ,string password);
          Task<bool> UserExists(string userName);
     }
 }
