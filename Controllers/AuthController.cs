@@ -45,7 +45,7 @@ namespace Plant.API.Controllers {
         }
 
         [HttpPost ("Login")]
-        public async Task<IActionResult> Login ([FromBody] LoginDTO user) {
+        public async Task<IActionResult> Login (LoginDTO user) {
 
 
             // retrieve user from DB

@@ -32,11 +32,9 @@ namespace Plant.API {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
             services.AddDbContext<DataContext> (x => x.UseSqlite (Configuration.GetConnectionString ("DefaultConnection")));
-            services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
             services.AddCors ();
             services.AddScoped<IAuthRepository, AuthRepository> ();
             services.AddScoped<IinfoRepository, InfoRepository> ();
-
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme).
             AddJwtBearer (options => {
                 options.TokenValidationParameters = new TokenValidationParameters {
@@ -46,12 +44,12 @@ namespace Plant.API {
                 ValidateAudience = false
                 };
             });
-
+            services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure (IApplicationBuilder app, IHostingEnvironment env) {
-            
+
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
             } else {
@@ -66,11 +64,11 @@ namespace Plant.API {
                             }
                         });
                 });
-                
+
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 //app.UseHsts();
             }
-
+            
             //app.UseHttpsRedirection();
             app.UseCors (x => x.AllowAnyOrigin ().AllowAnyHeader ().AllowAnyMethod ());
             app.UseAuthentication ();
